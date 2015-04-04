@@ -41,6 +41,7 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
             'rateUpload' => 10,
             'rateDownload' => 100,
             'downloadDir' => '/home/foo',
+            'secondsSeeding' => 30,
             'files' => array(
                 (object) array()
             ),
@@ -74,6 +75,7 @@ class TorrentTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(10, $this->getTorrent()->getUploadRate());
         $this->assertEquals(100, $this->getTorrent()->getDownloadRate());
         $this->assertEquals('/home/foo', $this->getTorrent()->getDownloadDir());
+        $this->assertEquals(30, $this->getTorrent()->getSecondsSeeding());
         $this->assertCount(1, $this->getTorrent()->getFiles());
         $this->assertCount(2, $this->getTorrent()->getPeers());
         $this->assertCount(3, $this->getTorrent()->getTrackers());
